@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Chart.js demo</title>
+        <!-- import plugin script -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+    </head>
+    <body>
+        <!-- line chart canvas element -->
+        <canvas id="buyers" width="800" height="600"></canvas>
+        <!-- pie chart canvas element -->
+        <canvas id="countries" width="600" height="400"></canvas>
+        <!-- bar chart canvas element -->
+        <canvas id="income" width="600" height="400"></canvas>
+        <canvas id="doughnut-chart" width="800" height="450"></canvas>
+        <script>
+            // line chart data
+            var buyerData = {
+                labels : ["Regent Street",
+                	"Prospect Street",
+                	"Smythe Street",
+                	"Brunswick Street",
+                	"Hanwell Road",
+                	"York Street",
+                	"Ring Road",
+                	"Union Street",
+                	"King Street",
+                	"Main Street",
+                	"Cliffe Street",
+                	"Westmorland Street",
+                	"Paul Street",
+                	"Waggoners Lane",
+                	"Knowledge Park Drive",
+                	"Saunders Street",
+                	"Wayne Squibb Boulevard",
+                	"Wetmore Road",
+                	"Canterbury Drive",
+                	"Gabriel Drive",
+                	"Golf Club Road",
+                	"MacFarlane Street",
+                	"MacKay Drive",
+],
+                datasets : [
+                {
+                    fillColor : "rgba(172,194,132,0.4)",
+                    strokeColor : "#ACC26D",
+                    pointColor : "#fff",
+                    pointStrokeColor : "#9DB86D",
+                    data : [229,
+                    	66,
+                    	65,
+                    	57,
+                    	56,
+                    	55,
+                    	49,
+                    	39,
+                    	37,
+                    	34,
+                    	32,
+                    	26,
+                    	5,
+                    	5,
+                    	4,
+                    	4,
+                    	4,
+                    	4,
+                    	3,
+                    	3,
+                    	3,
+                    	3,
+                    	3
+]
+                }
+            ]
+            }
+            // get line chart canvas
+            var buyers = document.getElementById('buyers').getContext('2d');
+            // draw line chart
+            new Chart(buyers).Line(buyerData);
+            // pie chart data
+            var pieData = [
+                {
+                    value : 1.825293351,
+                    color : "#FF8153"
+                },                {
+                    value : 1.043024772,
+                    color : "#000000"
+                },                {
+                    value : 1.173402868,
+                    color : "#ffffff"
+                },                {
+                    value : 0.651890482,
+                    color : "#808080"
+                },                {
+                    value : 0.130378096,
+                    color : "#000075"
+                },                {
+                    value : 1.434159061,
+                    color : "#ffd8b1"
+                },                {
+                    value : 2.998696219,
+                    color : "#808000"
+                },                {
+                    value : 3.650586701,
+                    color : "#aaffc3"
+                },                {
+                    value : 5.345501956,
+                    color : "#800000"
+                },                {
+                    value : 5.997392438,
+                    color : "#fffac8"
+                },                {
+                    value : 4.041720991,
+                    color : "#9a6324"
+                },                {
+                    value : 6.910039113,
+                    color : "#e6beff"
+                },                {
+                    value : 7.431551499,
+                    color : "#008080"
+                },                {
+                    value : 8.083441982,
+                    color : "#fabebe"
+                },                {
+                    value : 5.084745763,
+                    color : "#bcf60c"
+                },                {
+                    value : 7.431551499,
+                    color : "#f032e6"
+                },                {
+                    value : 8.865710561,
+                    color : "#46f0f0"
+                },                {
+                    value : 5.215123859,
+                    color : "#911eb4"
+                },                {
+                    value : 6.910039113,
+                    color : "#f58231"
+                },                {
+                    value : 6.258148631,
+                    color : "#4363d8"
+                },                {
+                    value : 5.215123859,
+                    color : "#ffe119"
+                },                {
+                    value : 2.477183833,
+                    color : "#3cb44b"
+                },                {
+                    value : 1.825293351,
+                    color : "#e6194b"
+                }
+            ];
+            // pie chart options
+            var pieOptions = {
+                 segmentShowStroke : false,
+                 animateScale : true
+            }
+            // get pie chart canvas
+            var countries= document.getElementById("countries").getContext("2d");
+            // draw pie chart
+            new Chart(countries).Pie(pieData, pieOptions); 
+            // bar chart data
+//             var barData = {
+//                 labels : ["January","February","March","April","May","June"],
+//                 datasets : [
+//                     {
+//                         fillColor : "#48A497",
+//                         strokeColor : "#48A4D1",
+//                         data : [456,479,324,569,702,600]
+//                     },
+//                     {
+//                         fillColor : "rgba(73,188,170,0.4)",
+//                         strokeColor : "rgba(72,174,209,0.4)",
+//                         data : [364,504,605,400,345,320]
+//                     }
+//                 ]
+//             }
+//             // get bar chart canvas
+//             var income = document.getElementById("income").getContext("2d");
+//             // draw bar chart
+//             new Chart(income).Bar(barData);
+
+        </script>
+    </body>
+</html>
