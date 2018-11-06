@@ -4,65 +4,55 @@
        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
     </head>
 
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+window.onload = function() {
 
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "dark1", // "light1", "light2", "dark1", "dark2"
+	exportEnabled: true,
+	animationEnabled: true,
+	title: {
+		text: "Traffic Accidents By TIME"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 25,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabelFontSize: 16,
+		indexLabel: "{label}",
+		dataPoints: [
+			{ y: 1.825293351, label: "At 00:00 AM" },
+			{ y: 1.043024772, label: "At 01:00 AM" },
+			{ y: 1.173402868, label: "At 02:00 AM" },
+			{ y: 0.651890482, label: "At 03:00 AM" },
+			{ y: 0.130378096, label: "At 04:00 AM" },
+			{ y: 1.434159061, label: "At 06:00 AM" },
+			{ y: 2.998696219, label: "At 07:00 AM" },
+			{ y: 3.650586701, label: "At 08:00 AM" },
+			{ y: 5.345501956, label: "At 09:00 AM" },
+			{ y: 5.997392438, label: "At 10:00 AM" },
+			{ y: 4.041720991, label: "At 11:00 AM" },
+			{ y: 6.910039113, label: "At 12:00 PM" },
+			{ y: 7.431551499, label: "At 01:00 PM" },
+			{ y: 8.083441982, label: "At 02:00 PM" },
+			{ y: 5.084745763, label: "At 03:00 PM" },
+			{ y: 7.431551499, label: "At 04:00 PM" },
+			{ y: 8.865710561, label: "At 05:00 PM" },
+			{ y: 5.215123859, label: "At 06:00 PM" },
+			{ y: 6.910039113, label: "At 07:00 PM" },
+			{ y: 6.258148631, label: "At 08:00 PM" },
+			{ y: 5.215123859, label: "At 09:00 PM" },
+			{ y: 2.477183833, label: "At 10:00 PM" },
+			{ y: 1.825293351, label: "At 11:00 PM" }
+	]
+	}]
+});
+chart.render();
 
-    <canvas id="myChart" width="400" height="400"></canvas>
-        <script  type="text/javascript">
-
-        $(function() {
-             options = {
-                //Boolean - Show a backdrop to the scale label
-                scaleShowLabelBackdrop: true,
-                //String - The colour of the label backdrop
-                scaleBackdropColor: "rgba(255,255,255,0.75)",
-                // Boolean - Whether the scale should begin at zero
-                scaleBeginAtZero: true,
-                //Number - The backdrop padding above & below the label in pixels
-                scaleBackdropPaddingY: 2,
-                //Number - The backdrop padding to the side of the label in pixels
-                scaleBackdropPaddingX: 2,
-                //Boolean - Show line for each value in the scale
-                scaleShowLine: true,
-                //Boolean - Stroke a line around each segment in the chart
-                segmentShowStroke: true,
-                //String - The colour of the stroke on each segement.
-                segmentStrokeColor: "#fff",
-                //Number - The width of the stroke value in pixels
-                segmentStrokeWidth: 2,
-                //Number - Amount of animation steps
-                animationSteps: 100,
-                //String - Animation easing effect.
-                animationEasing: "easeOutBounce",
-                //Boolean - Whether to animate the rotation of the chart
-                animateRotate: true,
-                //Boolean - Whether to animate scaling the chart from the centre
-                animateScale: false,
-                //String - A legend template
-                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
-
-            };
-             data = [
-                {
-                    value: 300,
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Red"
-                },
-                {
-                    value: 50,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Green"
-                },
-                {
-                    value: 100,
-                    color: "#FDB45C",
-                    highlight: "#FFC870",
-                    label: "Yellow"
-                }
-            ];
-             ctx = $("#myChart").get(0).getContext("2d");
-             myNewChart = new Chart(ctx).Pie(data, options);
-        });
-    </script>
+}
+</script>
 </html>
